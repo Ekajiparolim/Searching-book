@@ -1,0 +1,43 @@
+library = [
+    {"title": "norwegian wood", "author": "haruki murakami", "year": 1987},
+    {"title": "kafka on the shore", "author": "haruki murakami", "year": 2002},
+    {"title": "1q84", "author": "haruki murakami", "year": 2009},
+    {"title": "animal farm", "author": "george orwell", "year": 1945},
+    {"title": "1984", "author": "george orwell", "year": 1949},
+    {"title": "homage to catalonia", "author": "george orwell", "year": 1938},
+    {"title": "pride and prejudice", "author": "jane austen", "year": 1813},
+    {"title": "sense and sensibility", "author": "jane austen", "year": 1811},
+    {"title": "emma", "author": "jane austen", "year": 1815},
+    {"title": "the old man and the sea", "author": "ernest hemingway", "year": 1952},
+    {"title": "for whom the bell tolls", "author": "ernest hemingway", "year": 1940},
+    {"title": "a farewell to arms", "author": "ernest hemingway", "year": 1929},
+    {"title": "looking for alaska", "author": "john green", "year": 2005},
+    {"title": "the fault in our stars", "author": "john green", "year": 2012},
+    {"title": "paper towns", "author": "john green", "year": 2008},
+]
+
+def search_books(keyword):
+    result = []
+    for book in library:
+        if keyword.lower() in book["title"].lower() or \
+           keyword.lower() in book["author"].lower() or \
+           keyword == str(book["year"]):
+            result.append(book)
+    return result
+
+def display_books(books):
+    if not books:
+        print("Tidak ada buku yang ditemukan.")
+    else:
+        print("Buku yang ditemukan:")
+        for book in books:
+            print(f"Judul: {book['title']}, Penulis: {book['author']}, Tahun: {book['year']}")
+            
+def main():
+    print("Selamat datang di perpustakaan")
+    keyword = input("Masukkan kata kunci judul, penulis, atau tahun rilis buku yang ingin dicari: ")
+    result = search_books(keyword)
+    display_books(result)
+    
+if __name__ == "__main__":
+    main()
